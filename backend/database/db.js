@@ -15,4 +15,7 @@ try {
   console.log("the database is connected");
 } catch (error) {
   console.log("the error in the connecting in the database");
+  process.exit(1);
 }
+
+export default database;
