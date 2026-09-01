@@ -1,5 +1,9 @@
-import pkg from "pg";
+import { config } from "dotenv";
 
+import pkg from "pg";
+config({
+  path: "./config/config.env",
+});
 const { Client } = pkg;
 
 const database = new Client({
@@ -15,6 +19,7 @@ try {
   console.log("the database is connected");
 } catch (error) {
   console.log("the error in the connecting in the database");
+  console.log(error);
   process.exit(1);
 }
 

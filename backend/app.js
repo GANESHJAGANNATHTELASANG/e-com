@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from "cors";
+import { createTables } from "./utils/creatTables.js";
 
 config({
   path: "./config/config.env",
@@ -30,5 +31,7 @@ app.use(
     useTempFiles: true,
   }),
 );
+
+createTables();
 
 export default app;
