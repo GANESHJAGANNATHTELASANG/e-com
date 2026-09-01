@@ -2,8 +2,8 @@ import database from "../database/db.js";
 
 export async function createShippingInfoTable() {
   try {
-    const query = ` CREATE TABLE IF
-NOT EXISTS shipping_info ( id UUID DEFAULT gen_random_uuid()
+    const query = ` CREATE TABLE IF NOT EXISTS shipping_info (
+     id UUID DEFAULT gen_random_uuid()
 PRIMARY KEY, order_id UUID NOT NULL UNIQUE, full_name
 VARCHAR(100) NOT NULL, state VARCHAR(100) NOT NULL, city
 VARCHAR(100) NOT NULL, country VARCHAR(100) NOT NULL,
