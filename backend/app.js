@@ -6,6 +6,7 @@ import cors from "cors";
 import { createTables } from "./utils/creatTables.js";
 import authRouter from "./routers/authRouter.js";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
+import morgan from "morgan";
 
 config({
   path: "./config/config.env",
@@ -13,6 +14,7 @@ config({
 
 const app = express();
 
+app.use(morgan("dev"));
 app.use(express.json());
 
 app.use(
