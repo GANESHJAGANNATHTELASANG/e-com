@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import { createTables } from "./utils/creatTables.js";
+import authRouter from "./routers/authRouter.js";
+import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 
 config({
   path: "./config/config.env",
@@ -32,6 +34,10 @@ app.use(
   }),
 );
 
+app.use("/api/v1/auth", authRouter);
+
 createTables();
+
+app.use(errorMiddleware);
 
 export default app;
