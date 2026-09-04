@@ -8,7 +8,7 @@ export const isAuth = async (req, res, next) => {
   if (!token) {
     return next(
       new ErrorHandler(
-        "User is not authenticated so login again, token is expired",
+        "User is not authenticated so login again, token is expired or user does not exist",
         401,
       ),
     );
@@ -24,7 +24,7 @@ export const isAuth = async (req, res, next) => {
   if (!user.rows.length === 0) {
     return next(
       new ErrorHandler(
-        "User is not authenticated so login again, token is expired",
+        "User is not authenticated so login again, token is expired or user does not exist",
         401,
       ),
     );
